@@ -6,7 +6,7 @@ class BookBase(BaseModel):
     title: str
 
 
-class BookCreate(BaseModel):
+class BookCreate(BookBase):
     pass
 
 

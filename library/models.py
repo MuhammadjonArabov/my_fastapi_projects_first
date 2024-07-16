@@ -14,7 +14,7 @@ class Author(Base):
     __tablename__ = "authors"
 
     id = Column(Integer, primary_key=True, index=True)
-    full_name = Column(String, index=True)
+    name = Column(String, index=True)
     books = relationship("Book", secondary=author_book_connection, back_populates="authors")
 
 
