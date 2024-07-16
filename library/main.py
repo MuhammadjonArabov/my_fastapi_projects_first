@@ -3,7 +3,6 @@ from typing import List
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-
 from . import crud, database, models, schemas
 
 models.Base.metadata.create_all(bind=database.engine)
@@ -16,7 +15,7 @@ async def create_author(author: schemas.AuthorCreate, db: Session = Depends(data
     return await crud.create_author(db=db, author=author)
 
 
-@app.get("/authors/", response_model=List[schemas.Author])
+@app.get("/authors/")
 async def read_authors(skip: int = 0, limit: int = 10, db: Session = Depends(database.get_db)):
     authors = await crud.get_author_list(db=db, skip=skip, limit=limit)
     return authors
