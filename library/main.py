@@ -2,8 +2,7 @@ from typing import List
 
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-import asyncio
-import aiohttp
+
 
 from . import crud, database, models, schemas
 
